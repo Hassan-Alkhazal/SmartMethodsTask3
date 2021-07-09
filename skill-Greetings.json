@@ -1,0 +1,392 @@
+{
+  "intents": [
+    {
+      "intent": "Drinks",
+      "examples": [
+        {
+          "text": "drink"
+        },
+        {
+          "text": "drinks"
+        },
+        {
+          "text": "I want cold drink"
+        },
+        {
+          "text": "I want cold drinks"
+        },
+        {
+          "text": "I would like to have cold drink"
+        },
+        {
+          "text": "I would like to have cold drinks"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Drink_type",
+      "examples": [
+        {
+          "text": "coffee"
+        },
+        {
+          "text": "Ice coffee"
+        },
+        {
+          "text": "I want Ice coffee"
+        },
+        {
+          "text": "I want mango juice"
+        },
+        {
+          "text": "I want orange juice"
+        },
+        {
+          "text": "I would like to have Ice coffee"
+        },
+        {
+          "text": "I would like to have mango juice"
+        },
+        {
+          "text": "I would like to have Orange juice"
+        },
+        {
+          "text": "mango"
+        },
+        {
+          "text": "mango juice"
+        },
+        {
+          "text": "orange"
+        }
+      ],
+      "description": "we have Ice coffee, orange and mango juice."
+    },
+    {
+      "intent": "Icecream",
+      "examples": [
+        {
+          "text": "Ice cream"
+        },
+        {
+          "text": "I want ice cream"
+        },
+        {
+          "text": "I want icecream"
+        },
+        {
+          "text": "I want ice creams"
+        },
+        {
+          "text": "I want icecreams"
+        },
+        {
+          "text": "I would like to have Ice cream"
+        },
+        {
+          "text": "I would like to have ice creams"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Icecream_flavor",
+      "examples": [
+        {
+          "text": "I want orange"
+        },
+        {
+          "text": "I want orange flavor"
+        },
+        {
+          "text": "I want strawberry"
+        },
+        {
+          "text": "I want strawberry flavor"
+        },
+        {
+          "text": "I want vanilla"
+        },
+        {
+          "text": "I want vanilla flavor"
+        },
+        {
+          "text": "i would like to have orange flavor"
+        },
+        {
+          "text": "I would like to have strawberry flavor"
+        },
+        {
+          "text": "I would like to have vanilla flavor"
+        },
+        {
+          "text": "Orange"
+        },
+        {
+          "text": "strawberry"
+        },
+        {
+          "text": "Vanilla"
+        }
+      ],
+      "description": "we have so many flavors ! what would you like to choose ? we have vanilla,orange, and strawberry flavors."
+    },
+    {
+      "intent": "Size",
+      "examples": [
+        {
+          "text": "I want large"
+        },
+        {
+          "text": "I want large coffee"
+        },
+        {
+          "text": "i want large ice coffee"
+        },
+        {
+          "text": "I want large icecream"
+        },
+        {
+          "text": "I want large size"
+        },
+        {
+          "text": "I want medium icecream"
+        },
+        {
+          "text": "I want medium size"
+        },
+        {
+          "text": "I want small icecream"
+        },
+        {
+          "text": "I want small size"
+        },
+        {
+          "text": "Large"
+        },
+        {
+          "text": "medium"
+        },
+        {
+          "text": "small"
+        }
+      ],
+      "description": "Large,medium,small"
+    },
+    {
+      "intent": "Toppings",
+      "examples": [
+        {
+          "text": "Caramel"
+        },
+        {
+          "text": "I want Caramel"
+        },
+        {
+          "text": "I want Oreos"
+        },
+        {
+          "text": "I want Whipped cream"
+        },
+        {
+          "text": "Oreos"
+        },
+        {
+          "text": "whipped cream"
+        },
+        {
+          "text": "Whipped cream."
+        }
+      ],
+      "description": "we have Caramel, Oreos, and Whipped cream."
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Explaination",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_3_1625721795493",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, I'm Arthur, Can I take your order, sir/madam? We have cold drinks and ice creams."
+              },
+              {
+                "text": "Hi, I'm Arthur, I'll be your server for tonight. what would you like to order? We have cold drinks and ice creams."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "node_1_1625697313496"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "what size would you like to choose ? we have Large,medium, and small."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Toppings or #Drink_type",
+      "dialog_node": "node_2_1625722763250",
+      "previous_sibling": "node_3_1625715226360"
+    },
+    {
+      "type": "standard",
+      "title": "Drinks_type",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "we have so many drinks. what would you like to choose ? we have Ice coffee, orange and mango juice."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Drinks",
+      "dialog_node": "node_3_1625715226360",
+      "previous_sibling": "node_9_1625725069056"
+    },
+    {
+      "type": "standard",
+      "title": "Icecream_toppings",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "we have so many toppings .what would you like to choose ? we have Caramel, Oreos, and Whipped cream."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Icecream_flavor",
+      "dialog_node": "node_3_1625721795493",
+      "previous_sibling": "node_4_1625712807057"
+    },
+    {
+      "type": "standard",
+      "title": "Icecream_flavor",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "we have so many flavors ! what would you like to choose ? we have vanilla,orange, and strawberry flavors."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Icecream",
+      "dialog_node": "node_4_1625712807057",
+      "previous_sibling": "node_2_1625722763250"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "thank you for your order . Redirecting you to payment page .."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Size",
+      "dialog_node": "node_9_1625725069056",
+      "previous_sibling": "node_1_1625697313496"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Greetings",
+  "language": "en",
+  "description": "a skill to greet the user"
+}
